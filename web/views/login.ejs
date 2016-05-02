@@ -1,7 +1,75 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redis Commander: <%= title %></title>
+    <link rel="icon"
+          href="favicon.png">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <link href="/css/default.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/json-tree/css/jsontree.css">
+    <script type="text/javascript" src="/browserify.js"></script>
+    <script type="text/javascript" src="/scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/jstree/jquery.jstree.js"></script>
+    <script type="text/javascript" src="/json-tree/jsontree.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.resize.min.js"></script>
+    <script type="text/javascript" src="/clippy-jquery/jquery.clippy.js"></script>
+    <script type="text/javascript" src="/scripts/ejs.js"></script>
+    <script type="text/javascript" src="/scripts/dateformat.js"></script>
+    <script type="text/javascript" src="/scripts/countdown.js"></script>
+    <script type="text/javascript" src="/scripts/redisCommander.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container login-page-header">
+            <a class="brand" href="/"><img src="/images/RedisCommandLogo.png"/></a>
 
-<form action="/auth/login" method="post">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <input type="submit">
-</form>
+            <ul class="nav">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <% var flashes = getFlashes(); %>
+    <% for(var flashType in flashes) { %>
+    <% flashes[flashType].forEach(function (flash) { %>
+    <div class="alert alert-block <%= flashType === 'error' ? 'alert-error' : '' %> fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= flash %>
+    </div>
+    <% }) %>
+    <% } %>
+
+    <form class="form-horizontal" action="/auth/login" method="post">
+        <div class="control-group">
+            <h1>Login</h1>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+                <input type="text" id="inputEmail" placeholder="Email" name="email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" placeholder="Password" name="password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
