@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "async": "~0.1.22",
+    "bcrypt": "^0.8.6",
     "browserify": "^9.0.8",
     "browserify-middleware": "^5.0.1",
     "cmdparser": "0.0.3",

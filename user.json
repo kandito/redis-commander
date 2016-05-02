@@ -2,7 +2,7 @@
   {
     "id": 1,
     "username": "admin",
-    "password": "123",
+    "password": "$2a$10$ElF0lbWQ9X0OsgXGy0r2WuUQeQI6oMCdbzbEtgaXkcq.R/kdvihSe",
     "email": "kandito@cermati.com"
   }
 ]
